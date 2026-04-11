@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<h2>Register</h2>
+<div class="form-container">
+    <input type="text" id="regUsername" placeholder="New joinee Username">
+    <input type="password" id="regPassword" placeholder="New joinee Password">
+    <input type="text" id="regName" placeholder="New joinee Name">
+    <input type="email" id="regemail" placeholder="New joinee email">
+    <input type="" id="regrollno" placeholder="Enter  referee Rollno(clg stu id)">
+    <input type="text" id="regphno" maxlength="10"
+           oninput="this.value = this.value.replace(/[^0-9]/g,'')"
+           placeholder="New joinee mobileno">
+    
+    <span id="error" style="color:red;"></span>
+</div>
+<button onclick="return registerUser()">Register</button>
+<script>
+function registerUser() {
+    let username = document.getElementById("regUsername").value.trim();
+    let password = document.getElementById("regPassword").value.trim();
+    let name = document.getElementById("regName").value.trim();
+    let email = document.getElementById("regemail").value.trim();
+    let rollno = document.getElementById("regrollno").value.trim();
+    let mobileno = document.getElementById("regphno").value.trim();
+    let error = document.getElementById("error");
+    if (!username || !password || !name || !email || !rollno || !mobileno) {
+        alert("Please fill all fields");
+        return false;
+    }
+    if (!/^[0-9]{10}$/.test(mobileno)) {
+        error.textContent = "Mobile number must be exactly 10 digits!";
+        return false;
+    }
+    error.textContent = "";
+    let students = JSON.parse(localStorage.getItem("students")) || [];
+    students.push({
+        username: username,
+        password: password,
+        name: name,
+        email: email,
+        rollno: rollno,
+        mobileno: mobileno
+    });
+    localStorage.setItem("students", JSON.stringify(students));
+    alert("Registration Successful!");
+    window.location.href = "../index.html";
+    return true;
+}
+</script>
+</body>
+</html>

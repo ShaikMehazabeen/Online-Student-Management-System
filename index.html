@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login / Register</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h2>WELCOME TO TECH COLLEGE PORTAL</h2>
+    <button onclick="goLogin()">
+        <a href="login/index.html" id="login">Login</a>
+    </button>
+    <button onclick="showRegisterOptions()">Register</button>
+    <!-- Hidden Options -->
+    <div id="registerOptions" style="display:none; margin-top:20px;">
+        <button onclick="goStudent()">Student / User</button>
+        <button onclick="showManagementLogin()">Management</button>
+    </div>
+    <!-- Management Password Section -->
+    <div id="managementLogin" style="display:none; margin-top:20px;">
+        <input type="password" id="managementPassword" placeholder="Enter Management Password">
+        <button onclick="verifyManagement()">Submit</button>
+        <p id="mgmtError" style="color:red;"></p>
+    </div>
+</div>
+<script>
+function goLogin(){
+    window.location.href = "login/index.html";
+}
+function showRegisterOptions(){
+    document.getElementById("registerOptions").style.display = "block";
+}
+function goStudent(){
+    window.location.href = "register/index.html";
+}
+function showManagementLogin(){
+    document.getElementById("managementLogin").style.display = "block";
+}
+function verifyManagement(){
+    let password = document.getElementById("managementPassword").value;
+    let error = document.getElementById("mgmtError");
+    // 🔐 Set your management password here
+    if(password === "tech2010"){
+        window.location.href = "register/management.html";
+    } else {
+        error.textContent = "Incorrect Password!";
+    }
+}
+</script>
+</body>
+</html>
