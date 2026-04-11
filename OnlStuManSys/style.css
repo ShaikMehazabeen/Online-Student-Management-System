@@ -1,0 +1,98 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Full Page Background */
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+}
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: url("https://www.collegebatch.com/static/clg-gallery/tadipatri-engineering-college-anantapur-325580.webp");
+    background-size:cover;
+    opacity: 0.7;   /*👈 50% opacity */
+    z-index: -1;
+}
+
+/* Main Card */
+.container {
+    background: white;
+    padding: 40px;
+    width: 350px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Heading */
+.container h2 {
+    margin-bottom: 10px;
+    color: #1e3c72;
+}
+
+/* Subtitle */
+.subtitle {
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 25px;
+}
+#login{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+/* Buttons */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* Login Button */
+button:first-of-type {
+    background-color: #1e3c72;
+    color: white;
+}
+
+/* Register Button */
+button:last-of-type {
+    background-color: #2a5298;
+    color: white;
+}
+
+/* Hover Effect */
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Fade Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

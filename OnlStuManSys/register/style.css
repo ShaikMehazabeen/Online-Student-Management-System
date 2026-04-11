@@ -1,0 +1,116 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Gradient Background */
+body {
+    min-height: 100vh;   /* changed from height to min-height */
+    background: linear-gradient(135deg, #4e73df, #1cc88a);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Heading */
+h2 {
+    color: whitesmoke;
+    margin-bottom: 70px;
+    font-size: 40px;
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+/* Form Container */
+.form-container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+/* Inputs */
+input {
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: none;
+    width: 220px;
+    outline: none;
+    font-size: 14px;
+    background: #eaeaea;
+    transition: 0.3s;
+}
+
+input:focus {
+    background: #ffffff;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+/* Button */
+button {
+    padding: 12px 20px;
+    border-radius: 10px;
+    border: none;
+    background: #4e73df;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #2e59d9;
+}
+
+/* Table Card (Glass Effect) */
+.table-card {
+    width: 1000px;
+    padding: 25px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    margin-top: 50px;
+
+    /* Height fix added */
+    max-height: 500px;      /* prevents overflow */
+    overflow-y: auto;       /* enables scroll when records increase */
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: white;
+    text-align: center;
+}
+
+th {
+    padding: 15px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+td {
+    padding: 12px;
+}
+
+/* Table Row Hover */
+tbody tr:hover {
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+}
+
+/* Responsive */
+@media (max-width: 420px) {
+    .table-card {
+        width: 95%;
+    }
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Management Records</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<h2>Registered Students Records</h2>
+<div class="table-card">
+    <table border="1">
+        <thead>
+            <tr>
+                <th> joinee Name</th>
+                <th> refree Roll no</th>
+                <th>joinee Email</th>
+                <th>joinee Mobile no</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="studentTable"></tbody>
+    </table>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", loadStudents);
+function loadStudents() {
+    let students = JSON.parse(localStorage.getItem("students")) || [];
+    let tableBody = document.getElementById("studentTable");
+    tableBody.innerHTML = "";
+    students.forEach((student, index) => {
+        let row = `
+            <tr>
+                <td>${student.name}</td>
+                <td>${student.rollno}</td>
+                <td>${student.email}</td>
+                <td>${student.mobileno}</td>
+                <td>
+                    <button onclick="deleteStudent(${index})">Delete</button>
+                </td>
+            </tr>
+        `;
+        tableBody.innerHTML += row;
+    });
+}
+function deleteStudent(index) {
+    let students = JSON.parse(localStorage.getItem("students")) || [];
+    students.splice(index, 1);
+    localStorage.setItem("students", JSON.stringify(students));
+    loadStudents();
+}
+</script>
+</body>
+</html>
